@@ -42,7 +42,7 @@ int main() {
 ```bash
 Hello World
 Hello Beautiful World
-['Hello ', '# ', '', 'World', 'Beautiful', 'Today', '', '!', ]
+['# ', 'Hello ', '', 'World', 'Beautiful', 'Today', '', '!', ]
 ```
 
 ## Installation

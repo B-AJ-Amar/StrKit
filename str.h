@@ -25,6 +25,34 @@ void strInsert(str* myStr, char* InStr, int index);
 
 void strFree(str* s);
 
+// ? ====================================================================================
+
+str strUpper(str s);
+
+str strLower(str s);
+
+str strReverse(str s);
+
+str strTrim(str s);
+
+
+// ? ====================================================================================
+
+int strIsDigit(str s);
+
+int strIsAlpha(str s);
+
+int strIsAlnum(str s);
+
+int strIsSpace(str s);
+
+int strIsUpper(str s);
+
+int strIsLower(str s);
+
+int strIsPrintable(str s);
+
+
 // TODO : strReplace , strRemove , strSubstr , strFind , strSplit  , strReverse , strTrim
 
 
@@ -42,6 +70,7 @@ strArray strArrayCreate(int length);
 void strArraySet(strArray* s, int index, const char* strIn); 
 
 void strArrayPrint(strArray s);
+
 str strArrayGet(strArray s, int index);
 
 int strArraySize(strArray s);

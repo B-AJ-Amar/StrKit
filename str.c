@@ -143,6 +143,23 @@ str strTrim(str s) {
 
 // ? ====================================================================================
 
+// todo : indexOf
+
+int strEndsWith(str s, char* c) {
+    int len = strlen(c);
+    if (s.length < len) return 0;
+    return !strcmp(s.data + s.length - len, c);
+}
+
+int strStartsWith(str s, char* c) {
+    int len = strlen(c);
+    if (s.length < len) return 0;
+    return !strncmp(s.data, c, len);
+}
+// ? =================================================================
+
+
+
 int strIsDigit(str s){
     for (int i = 0; i < s.length; i++) {
         if (s.data[i] < '0' || s.data[i] > '9') {

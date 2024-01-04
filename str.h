@@ -41,7 +41,10 @@ str strTrim(str s);
 
 
 // ? ====================================================================================
+int strEndsWith(str s, char* c);
 
+int strStartsWith(str s, char* c) ;
+// ? ====================================================================================
 int strIsDigit(str s);
 
 int strIsAlpha(str s);

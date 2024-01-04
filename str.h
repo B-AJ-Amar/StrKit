@@ -27,6 +27,10 @@ void strFree(str* s);
 
 // ? ====================================================================================
 
+str strSub(str s, int start, int end);
+
+// ? ====================================================================================
+
 str strUpper(str s);
 
 str strLower(str s);
@@ -42,7 +46,7 @@ int strIsDigit(str s);
 
 int strIsAlpha(str s);
 
-int strIsAlnum(str s);
+int strIsAlphaNum(str s);
 
 int strIsSpace(str s);
 
@@ -53,7 +57,7 @@ int strIsLower(str s);
 int strIsPrintable(str s);
 
 
-// TODO : strReplace , strRemove , strSubstr , strFind , strSplit  , strReverse , strTrim
+// TODO : strReplace , strRemove , strSubstr , strFind , strSplit  
 
 
 // ? ====================================================================================

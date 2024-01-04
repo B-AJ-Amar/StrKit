@@ -60,6 +60,29 @@ void strInsert(str* myStr, char* InStr, int index) {
 
 // ? ====================================================================================
 
+str strSub(str s, int start, int end) {
+    if (start < 0) start = s.length + start; 
+    if (end < 0) end = s.length + end;      
+    //! rais out of index error
+    if (end > s.length || start > s.length) {
+        printf("Error: index out of range\n");
+        exit(EXIT_FAILURE);
+    }
+    if (start > end) return strCreate(NULL);
+    int new_len = end -start;
+
+    char* new_data = malloc(new_len + 1);
+    new_data[new_len] = '\0';
+    memcpy(new_data, s.data + start, new_len);
+    // printf("%s\n", new_data);
+
+    return strCreate(new_data);
+    
+}
+
+
+// ? ====================================================================================
+
 str strUpper(str s) {
     str temp = s;
     for (int i = 0; i < temp.length; i++) {

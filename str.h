@@ -40,6 +40,7 @@ str strReverse(str s);
 str strTrim(str s);
 
 
+
 // ? ====================================================================================
 int strEndsWith(str s, char* c);
 
@@ -64,31 +65,33 @@ int strIsPrintable(str s);
 
 
 // ? ====================================================================================
-// ? Array of strings
+// ? Arr of strings
 // ? ====================================================================================
 
-typedef struct strArray {
+typedef struct strArr {
     int length;
     str* data;
-} strArray;
+} strArr;
 
-strArray strArrayCreate(int length);
+strArr strArrCreate(int length);
 
-void strArraySet(strArray* s, int index, const char* strIn); 
+void strArrSet(strArr* s, int index, const char* strIn); 
 
-void strArrayPrint(strArray s);
+void strArrPrint(strArr s);
 
-str strArrayGet(strArray s, int index);
+str strArrGet(strArr s, int index);
 
-int strArraySize(strArray s);
+int strArrSize(strArr s);
 
-void strArrayAppend(strArray* s, char* c);
+void strArrAppend(strArr* s, char* c);
 
-void strArrayInsert(strArray* myStr, char* InStr, int index);
+void strArrInsert(strArr* myStr, char* InStr, int index);
 
-void strArrayPush(strArray* s, char* c);
+void strArrPush(strArr* s, char* c);
 
-str strArrayPop(strArray* s);
+str strArrPop(strArr* s);
 
-void strArrayFree(strArray* s);
+str strArrJoin(strArr s,char* delimiter);
+
+void strArrFree(strArr* s);
 #endif

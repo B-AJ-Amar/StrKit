@@ -249,8 +249,8 @@ void strFree(str* s) {
 // ? ====================================================================================
 
 
-strArray strArrayCreate(int length) {
-    strArray s;
+strArr strArrCreate(int length) {
+    strArr s;
     s.length = length;
     s.data = malloc(sizeof(str) * length);
     for (int i = 0; i < length; i++) {
@@ -259,37 +259,37 @@ strArray strArrayCreate(int length) {
     return s;
 }
 
-void strArrayPrint(strArray s) {
+void strArrPrint(strArr s) {
     printf("[");
     for (int i = 0; i < s.length; i++) {
         printf("'%s', ", strGet(s.data[i]));
     }
     printf("]\n");
 }
-void strArraySet(strArray* s, int index, const char* strIn) {
+void strArrSet(strArr* s, int index, const char* strIn) {
     if (index < s->length) {
         strSet(&s->data[index], strIn);
     }
 }
 
-str strArrayGet(strArray s, int index) {
+str strArrGet(strArr s, int index) {
     if (index < s.length) {
         return s.data[index];
     }
     return strCreate(NULL);
 }
 
-int strArraySize(strArray s) {
+int strArrSize(strArr s) {
     return s.length;
 }
 
-void strArrayAppend(strArray* s, char* c) {
+void strArrAppend(strArr* s, char* c) {
     s->data = realloc(s->data, sizeof(str) * (s->length + 1));
     s->data[s->length] = strCreate(c);
     s->length++;
 }
 
-void strArrayInsert(strArray* myStr, char* InStr, int index) {
+void strArrInsert(strArr* myStr, char* InStr, int index) {
     if (index < myStr->length) {
         myStr->data = realloc(myStr->data, sizeof(str) * (myStr->length + 1));
         memmove(myStr->data + index + 1, myStr->data + index, (myStr->length - index) * sizeof(str));
@@ -298,17 +298,39 @@ void strArrayInsert(strArray* myStr, char* InStr, int index) {
     }
 }
 
-void strArrayPush(strArray* s, char* c) {
-    strArrayInsert(s, c, 0);
+void strArrPush(strArr* s, char* c) {
+    strArrInsert(s, c, 0);
 }
 
-str strArrayPop(strArray* s) {
-    str temp = strArrayGet(*s, 0);
+str strArrPop(strArr* s) {
+    str temp = strArrGet(*s, 0);
     memmove(s->data, s->data + 1, (s->length - 1) * sizeof(str));
     s->length--;
     return temp;
 }
-void strArrayFree(strArray* s) {
+
+// join array
+str strArrJoin(strArr s,char* delimiter){
+    int newLen;
+    str temp = strCreate(NULL);
+    str sDelimiter = strCreate(delimiter);
+    for (int i = 0; i < s.length; i++) {
+        newLen += s.data[i].length;
+    }
+    newLen += sDelimiter.length * (s.length - 1);
+    temp.data = realloc(temp.data, newLen + 1);
+    temp.length = newLen;
+    temp.data[newLen] = '\0';
+    for (int i = 0; i < s.length; i++) {
+        strcat(temp.data, s.data[i].data);
+        if (i != s.length - 1) {
+            strcat(temp.data, sDelimiter.data);
+        }
+    }
+    return temp;
+}
+
+void strArrFree(strArr* s) {
     for (int i = 0; i < s->length; i++) {
         strFree(&s->data[i]);
     }

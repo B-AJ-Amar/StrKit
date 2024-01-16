@@ -93,5 +93,7 @@ str strArrPop(strArr* s);
 
 str strArrJoin(strArr s,char* delimiter);
 
+strArr strSplit(str s, char* delimiter);
+
 void strArrFree(strArr* s);
 #endif

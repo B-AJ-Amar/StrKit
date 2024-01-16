@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+// TODO : (str){-1, "string"} ==> calculate length
 str strCreate(const char* strIn) {
     str s;
 
@@ -327,6 +327,25 @@ str strArrJoin(strArr s,char* delimiter){
             strcat(temp.data, sDelimiter.data);
         }
     }
+    return temp;
+}
+
+strArr strSplit(str s, char* delimiter) {
+    strArr temp = strArrCreate(0);
+    int start = 0;
+    int end = 0;
+    int len = strlen(delimiter);
+    while (end < s.length) {
+        // if (s.data[end:end+len(delemiter)] == delimiter)
+        if (!strncmp(s.data + end, delimiter, len)) {
+            strArrAppend(&temp, strGet(strSub(s, start, end)));
+            end += len;
+            start = end;
+        } else {
+            end++;
+        }
+    }
+    strArrAppend(&temp, strGet(strSub(s, start, end)));
     return temp;
 }
 

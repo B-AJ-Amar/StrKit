@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 // TODO : (str){-1, "string"} ==> calculate length
 str strCreate(const char* strIn) {
@@ -18,6 +19,39 @@ str strCreate(const char* strIn) {
     }
 
     return s;
+}
+
+str Str(const char* strIn){
+    str s;
+
+    if (strIn != NULL) {
+        s.length = strlen(strIn);
+        s.data = malloc(s.length + 1);
+        strcpy(s.data, strIn);
+    } else {
+        s.length = 0;
+        s.data = malloc(1);
+        s.data[0] = '\0';
+    }
+
+    return s;
+
+}
+
+int Int(const char* strIn){
+    str strInt = Str(strIn);
+    int sum=0;
+    if (!strIsDigit(strInt))
+    {
+        printf("Error: %s is not an int\n",strGet(strInt));
+        exit(EXIT_FAILURE);   
+    }
+    for (int i = 0; i < strSize(strInt) ; i++)
+    {
+        sum += (strInt.data[i] - '0') * pow(10, strSize(strInt) - i - 1);
+    }
+    return sum; 
+    
 }
 
 void strSet(str* s, const char* strIn) {

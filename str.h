@@ -13,6 +13,10 @@ typedef struct str {
 
 str strCreate(const char* strIn);
 
+str Str(const char* strIn);
+
+int Int(const char* strIn);
+
 void strSet(str* s, const char* strIn);
 
 char* strGet(str s);

@@ -54,6 +54,32 @@ int Int(const char* strIn){
     
 }
 
+double Float(const char* strIn){
+    str strDouble = strCreate(strIn);
+    double sum = 0;
+
+    if (!strIsNum(strDouble))
+    {
+        printf("Error: %s is not a float\n",strGet(strDouble));
+        exit(EXIT_FAILURE);   
+        
+    }
+    int dotIndex = indexOf(strDouble, ".");
+
+    // part one (beore dot)
+    for (int i = 0; i < dotIndex; i++)
+    {
+        sum += (strDouble.data[i] - '0') * pow(10, dotIndex - i - 1);
+    }
+    // part two (after dot)
+    for (int i = dotIndex + 1; i < strSize(strDouble); i++)
+    {
+        sum += (strDouble.data[i] - '0') * pow(10, dotIndex - i);
+    }
+    return sum;
+    
+}
+
 void strSet(str* s, const char* strIn) {
     if (strIn != NULL) {
         s->length = strlen(strIn);
@@ -177,7 +203,16 @@ str strTrim(str s) {
 
 // ? ====================================================================================
 
-// todo : indexOf
+
+int indexOf(str s, char* c) {
+    int len = strlen(c);
+    for (int i = 0; i < s.length - len + 1; i++) {
+        if (!strncmp(s.data + i, c, len)) {
+            return i;
+        }
+    }
+    return -1;
+}
 
 int strEndsWith(str s, char* c) {
     int len = strlen(c);

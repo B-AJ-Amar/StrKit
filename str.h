@@ -17,6 +17,8 @@ str Str(const char* strIn);
 
 int Int(const char* strIn);
 
+double Float(const char* strIn);
+
 void strSet(str* s, const char* strIn);
 
 char* strGet(str s);
@@ -43,12 +45,13 @@ str strReverse(str s);
 
 str strTrim(str s);
 
-
-
 // ? ====================================================================================
+int indexOf(str s, char* c);
+
 int strEndsWith(str s, char* c);
 
 int strStartsWith(str s, char* c) ;
+
 // ? ====================================================================================
 int strIsDigit(str s);
 

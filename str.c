@@ -184,6 +184,25 @@ str strReverse(str s) {
     return temp;
 }
 
+str strReplace(str s, char* old, char* new) {
+    str temp = s;
+    int lenOld = strlen(old);
+    int lenNew = strlen(new);
+    int i = 0;
+    while (i < temp.length - lenOld + 1) {
+        if (!strncmp(temp.data + i, old, lenOld)) {
+            temp.data = realloc(temp.data, temp.length - lenOld + lenNew + 1);
+            memmove(temp.data + i + lenNew, temp.data + i + lenOld, temp.length - i - lenOld + 1);
+            memcpy(temp.data + i, new, lenNew);
+            temp.length = temp.length - lenOld + lenNew;
+            i += lenNew;
+        } else {
+            i++;
+        }
+    }
+    return temp;
+}
+
 str strTrim(str s) {
     str temp = s;
     int i = 0;

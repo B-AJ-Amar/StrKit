@@ -1,7 +1,7 @@
 # strKit - A C String Library
 
 ## Overview
-str.h is a comprehensive C library designed to simplify and enhance string manipulation in C programs. It provides a set of efficient and easy-to-use functions for working with C-style strings, offering developers a robust toolkit to streamline string operations.
+str.h is a comprehensive C library designed to simplify and enhance string manipulation in C programs. It provides a set of efficient and easy-to-use functions for working with C-style strings, offering developers a robust toolkit to streamline string operations, it may not be the best or the most performant but its mine 😎
 
 ## Usage Examples
 

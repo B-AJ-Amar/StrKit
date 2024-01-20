@@ -43,6 +43,8 @@ str strLower(str s);
 
 str strReverse(str s);
 
+str strReplace(str s, char* old, char* new);
+
 str strTrim(str s);
 
 // ? ====================================================================================
@@ -56,6 +58,8 @@ int strStartsWith(str s, char* c) ;
 int strIsDigit(str s);
 
 int strIsAlpha(str s);
+
+int strIsNum(str s);
 
 int strIsAlphaNum(str s);
 
